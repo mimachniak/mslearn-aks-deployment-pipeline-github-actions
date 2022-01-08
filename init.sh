@@ -6,6 +6,12 @@ export RESOURCE_GROUP_NAME=mslearn-gh-pipelines-$RANDOM_NO
 export AKS_NAME=contoso-video
 export ACR_NAME=ContosoContainerRegistry$RANDOM_NO
 
+echo $RANDOM_NO
+echo $RESOURCE_GROUP_NAME
+echo $AKS_NAME
+echo $ACR_NAME
+
+
 echo "Searching for resource group..."
 az group create -n $RESOURCE_GROUP_NAME -l eastus
 
