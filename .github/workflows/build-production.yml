@@ -40,7 +40,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           # Resource group name
-          resource-group: mslearn-gh-pipelines-6667
+          resource-group: mslearn-gh-pipelines-52563
           # AKS cluster name
           cluster-name: contoso-video
 
@@ -51,8 +51,9 @@ jobs:
             --create-namespace \
             --atomic \
             --wait \
-            --namespace staging \
+            --namespace production \
             contoso-website \
             ./kubernetes/contoso-website \
             --set image.repository=${{ secrets.ACR_NAME }} \
-            --set dns.name=${{ secrets.DNS_NAME }}
+            --set dns.name=${{ secrets.DNS_NAME }} \
+            --set image.tag=${GITHUB_REF##*/}
